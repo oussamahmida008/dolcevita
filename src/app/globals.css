@@ -36,14 +36,22 @@ h1, h2, h3, .font-serif {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  /* Removed background-attachment: fixed as it breaks on mobile */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/dolce.jpg');
+  height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('/dolce.jpg');
   background-size: cover;
   background-position: center;
   z-index: -1;
-  /* Use transform for potential performance boost on mobile */
   transform: translateZ(0);
+  transition: background-position 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .dolce-bg-overlay {
+    /* Focus more on the top of the image where the signage/building details usually are */
+    background-position: center 20%;
+    /* Slightly lighter gradient at top to make the image more visible */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.95)), url('/dolce.jpg');
+  }
 }
 
 .marble-card {
