@@ -37,11 +37,13 @@ h1, h2, h3, .font-serif {
   left: 0;
   width: 100%;
   height: 100%;
+  /* Removed background-attachment: fixed as it breaks on mobile */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/dolce.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   z-index: -1;
+  /* Use transform for potential performance boost on mobile */
+  transform: translateZ(0);
 }
 
 .marble-card {
